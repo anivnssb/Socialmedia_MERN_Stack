@@ -25,6 +25,7 @@ const Post = ({
     message,
     likeCount,
   },
+  setCurrentId,
 }) => {
   const classes = useStyles();
   return (
@@ -35,7 +36,13 @@ const Post = ({
         <Typography variant="body">{moment(createdAt).fromNow()}</Typography>
       </Box>
       <Box className={classes.overlay2}>
-        <Button style={{ color: 'white' }} size="small">
+        <Button
+          style={{ color: 'white' }}
+          size="small"
+          onClick={() => {
+            setCurrentId(_id);
+          }}
+        >
           <MoreHorizIcon fontSize="default" />
         </Button>
       </Box>
@@ -44,7 +51,13 @@ const Post = ({
           {tags.map((tag) => `#${tag}`)}
         </Typography>
       </Box>
+
       <CardContent>
+        <Box className={classes.title}>
+          <Typography variant="h5" gutterBottom>
+            {title}
+          </Typography>
+        </Box>
         <Box className={classes.title}>
           <Typography variant="h5" gutterBottom>
             {message}

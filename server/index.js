@@ -12,8 +12,9 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
-
-const CONNECTION_URL = 'mongodb://localhost:27017';
+const DB_USER = 'anvin';
+const DB_PSW = 'samsung123';
+const CONNECTION_URL = `mongodb://${DB_USER}:${DB_PSW}@localhost:27017/mern_stack_socialmedia`;
 const PORT = process.env.PORT || 5000;
 mongoose.set('strictQuery', false);
 mongoose
