@@ -13,6 +13,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import useStyles from './styles';
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { deletePost } from '../../../actions/posts';
 
 const Post = ({
   post: {
@@ -28,6 +30,7 @@ const Post = ({
   setCurrentId,
 }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   return (
     <Card className={classes.card}>
       <CardMedia className={classes.media} image={selectedFile} title={title} />
@@ -68,7 +71,13 @@ const Post = ({
         <Button size="small" color="primary">
           <ThumbUpAltIcon fontSize="small" /> Like {likeCount}
         </Button>
-        <Button size="small" color="primary">
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => {
+            dispatch(deletePost(_id));
+          }}
+        >
           Delete <DeleteIcon fontSize="small" />
         </Button>
       </CardActions>
