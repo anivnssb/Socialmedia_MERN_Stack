@@ -51,7 +51,7 @@ const Post = ({
       </Box>
       <Box className={classes.details}>
         <Typography variant="body2" color="textSecondary">
-          {tags.map((tag) => `#${tag}`)}
+          {tags.map((tag) => `#${tag} `)}
         </Typography>
       </Box>
 
