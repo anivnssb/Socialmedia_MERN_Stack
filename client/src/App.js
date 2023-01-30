@@ -22,7 +22,7 @@ function App() {
       <Navbar />
       <Grow in>
         <Container>
-          <Grid container className='mainContainer' alignItems="stretch" spacing={3}>
+          <Grid container className={classes.mainContainer} alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={7}>
               <Posts setCurrentId={setCurrentId} />
             </Grid>
