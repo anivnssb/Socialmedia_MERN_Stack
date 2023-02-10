@@ -4,7 +4,7 @@ import {GoogleLogin} from 'react-google-login'
 import useStyles from './styles'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Input from './Input';
-import Icon from './icon'
+// import Icon from './icon'
 const Auth = () => {
 const [showPassword,setShowPassword]=useState(false)
 const [isSignUp,setIsSignUp]=useState(false)
@@ -12,9 +12,9 @@ const classes=useStyles();
 const handleSubmit=()=>{}
 const handleChange=()=>{}
 const switchMode=()=>{setIsSignUp((prevState)=>!prevState)}
-const googleSuccess=async (res)=>{console.log(res)}
-const googleFailure=(error)=>{ console.log('Google google sigin in was unsuccessfull. Try again later')
-console.log(error)}
+// const googleSuccess=async (res)=>{console.log(res)}
+// const googleFailure=(error)=>{ console.log('Google google sigin in was unsuccessfull. Try again later')
+// console.log(error)}
   return (
    <Container component="main" maxWidth="xs">
     <Paper className={classes.paper} elevation={3}>
@@ -38,7 +38,7 @@ console.log(error)}
             </Grid>
             
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>{isSignUp?"Sign Up":"Sign In"}</Button>
-            <GoogleLogin clientId='995288083228-b1j8g7qhsaujv4dpm7sftts3f5pvqo4e.apps.googleusercontent.com' render={(renderProps)=>(
+            {/* <GoogleLogin clientId='995288083228-b1j8g7qhsaujv4dpm7sftts3f5pvqo4e.apps.googleusercontent.com' render={(renderProps)=>(
                 <Button className={classes.googleButton} color="primary"
                  fullWidth onClick={renderProps.onClick}
                   disabled={renderProps.disabled}
@@ -48,7 +48,7 @@ Google Sign In
             )}
             onSuccess={googleSuccess}
             onFailure ={googleFailure}
-            cookiePolicy="single_host_origin"/>
+            cookiePolicy="single_host_origin"/> */}
             <Grid container justifyContent='flex-end'>
                 <Grid item>
                     <Button onClick={switchMode}>{isSignUp?'Already have an account? Sign In' :"Dont have an account? Sign Up"}</Button>
