@@ -6,11 +6,16 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Input from './Input';
 // import Icon from './icon'
 const Auth = () => {
+const inititialState={firstName:'',lastName:'',email:'',password:''};
+const [formData,setFormData]    =useState(inititialState)
 const [showPassword,setShowPassword]=useState(false)
 const [isSignUp,setIsSignUp]=useState(false)
 const classes=useStyles();
-const handleSubmit=()=>{}
-const handleChange=()=>{}
+const handleSubmit=(e)=>{e.preventDefault();
+if(isSignUp){}
+if(!isSignUp){}
+}
+const handleChange=({target:{name,value}})=>{setFormData({...formData,[name]:value})}
 const switchMode=()=>{setIsSignUp((prevState)=>!prevState)}
 // const googleSuccess=async (res)=>{console.log(res)}
 // const googleFailure=(error)=>{ console.log('Google google sigin in was unsuccessfull. Try again later')
@@ -28,7 +33,7 @@ const switchMode=()=>{setIsSignUp((prevState)=>!prevState)}
                     isSignUp&&(
                        <>
                         <Input name="firstName"handleChange={handleChange} label="First Name" autoFocus half xs={6}/>
-                        <Input name="firstName"handleChange={handleChange} label="First Name"  half xs={6}/>
+                        <Input name="lastName"handleChange={handleChange} label="Last Name"  half xs={6}/>
                         </> 
                     )
                 }
