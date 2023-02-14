@@ -7,6 +7,6 @@ const userSchema = mongoose.Schema({
   id: {type:String},
 });
 
-const User = mongoose.model('PostMessage', postSchema);
+const User = mongoose.model('UserSchema', userSchema);
 
 export default User;
