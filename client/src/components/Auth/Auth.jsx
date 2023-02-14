@@ -4,16 +4,24 @@ import {GoogleLogin} from 'react-google-login'
 import useStyles from './styles'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Input from './Input';
+import {useDispatch} from 'react-redux'
+import {signUp} from '../../actions/auth'
+import {useHistory} from 'react-router-dom'
 // import Icon from './icon'
 const Auth = () => {
+const dispatch=useDispatch()
+const history=useHistory()
 const inititialState={firstName:'',lastName:'',email:'',password:''};
 const [formData,setFormData]    =useState(inititialState)
 const [showPassword,setShowPassword]=useState(false)
 const [isSignUp,setIsSignUp]=useState(false)
 const classes=useStyles();
 const handleSubmit=(e)=>{e.preventDefault();
-if(isSignUp){}
-if(!isSignUp){}
+    if(isSignUp){
+        dispatch(signUp(formData,history));       
+    }
+    if(!isSignUp){}
+    
 }
 const handleChange=({target:{name,value}})=>{setFormData({...formData,[name]:value})}
 const switchMode=()=>{setIsSignUp((prevState)=>!prevState)}
