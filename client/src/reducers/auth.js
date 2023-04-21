@@ -4,7 +4,7 @@ export default (user={}, action) => {
     case AUTH:
        localStorage.setItem('profile', JSON.stringify({...action?.data}))
       return {...user, authData:action?.data}
-    case AUTH:
+    case LOGOUT:
       localStorage.removeItem('profile')
       return {}  
     default:

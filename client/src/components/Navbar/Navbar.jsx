@@ -15,7 +15,8 @@ const Navbar = () => {
   
   const logout=()=>{
     dispatch(logOut);
-    history.push('/')
+    history.push('/');
+    setUser(null)
   }
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
