@@ -14,7 +14,7 @@ export const getPosts = async (req, res) => {
 export const createPosts = async (req, res) => {
   try {
     const post = req.body;
-    const newPost = new PostMessage(post);
+    const newPost = new PostMessage({...post, creator:req.userId, createdAt:new Date().toISOString()});
 
     await newPost.save();
     res.status(201).json(newPost);
@@ -55,6 +55,7 @@ export const deletePost = async (req, res) => {
 };
 
 export const likePost = async (req, res) => {
+
   try {
     if(!req.userId){
       return res.json({message:"Unauthenticated"})
