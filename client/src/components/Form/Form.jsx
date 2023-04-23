@@ -13,7 +13,7 @@ const Form = ({ currentId, setCurrentId }) => {
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
   const [postData, setPostData] = useState({
-    creator: '',
+    name: '',
     title: '',
     message: '',
     tags: '',
@@ -21,9 +21,9 @@ const Form = ({ currentId, setCurrentId }) => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { creator, title, message, tags, selectedFile } = postData;
+    const { name, title, message, tags, selectedFile } = postData;
     if (
-      creator === '' ||
+      name === '' ||
       title === '' ||
       message === '' ||
       tags === '' ||
@@ -41,7 +41,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const clear = () => {
     setCurrentId(null);
     setPostData({
-      creator: '',
+      name: '',
       title: '',
       message: '',
       tags: '',
@@ -66,13 +66,13 @@ const Form = ({ currentId, setCurrentId }) => {
           {`${currentId ? 'Editing' : 'Creating'}`} a Memory
         </Typography>
         <TextField
-          name="creator"
+          name="name"
           variant="outlined"
           label="Creator"
           fullWidth
-          value={postData.creator}
+          value={postData.name}
           onChange={({ target: { value } }) =>
-            setPostData({ ...postData, creator: value })
+            setPostData({ ...postData, name: value })
           }
         />
         <TextField

@@ -14,6 +14,7 @@ const history=useHistory()
 const inititialState={firstName:'',lastName:'',email:'',password:''};
 const [formData,setFormData]    =useState(inititialState)
 const [showPassword,setShowPassword]=useState(false)
+const [showRepeatPassword,setShowRepeatPassword]=useState(false)
 const [isSignUp,setIsSignUp]=useState(false)
 const classes=useStyles();
 const handleSubmit=(e)=>{e.preventDefault();
@@ -24,6 +25,8 @@ const handleSubmit=(e)=>{e.preventDefault();
         dispatch(signIn(formData,history));
     }   
 }
+const handleShowPassword=()=>setShowPassword(prev=>!prev)
+const handleShowRepeatPassword=()=>setShowRepeatPassword(prev=>!prev)
 const handleChange=({target:{name,value}})=>{setFormData({...formData,[name]:value})}
 const switchMode=()=>{setIsSignUp((prevState)=>!prevState)}
 // const googleSuccess=async (res)=>{console.log(res)}
@@ -47,8 +50,8 @@ const switchMode=()=>{setIsSignUp((prevState)=>!prevState)}
                     )
                 }
                   <Input name="email"handleChange={handleChange} label="email Address"  type="email" xs={6}/>
-                  <Input name="password"handleChange={handleChange} handleShowPassword={setShowPassword} label="Password"  type="password" xs={6}/>
-                  {isSignUp&& <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange}/>}
+                  <Input name="password"handleChange={handleChange} handleShowPassword={handleShowPassword} showPassword={showPassword} label="Password"  type={!showPassword?"password":"text"} xs={6}/>
+                  {isSignUp&& <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} handleShowPassword={handleShowRepeatPassword}  showPassword={showRepeatPassword}  type={!showRepeatPassword?"password":"text"} xs={6}/>}
             </Grid>
             
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>{isSignUp?"Sign Up":"Sign In"}</Button>

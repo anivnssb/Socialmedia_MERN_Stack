@@ -21,7 +21,7 @@ const Post = ({
     _id,
     selectedFile,
     title,
-    creator,
+    name,
     createdAt,
     tags,
     message,
@@ -35,7 +35,7 @@ const Post = ({
     <Card className={classes.card}>
       <CardMedia className={classes.media} image={selectedFile} title={title} />
       <Box className={classes.overlay}>
-        <Typography variant="h6">{creator}</Typography>
+        <Typography variant="h6">{name}</Typography>
         <Typography variant="body">{moment(createdAt).fromNow()}</Typography>
       </Box>
       <Box className={classes.overlay2}>
