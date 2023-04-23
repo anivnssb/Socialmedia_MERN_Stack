@@ -5,7 +5,7 @@ import useStyles from './styles'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Input from './Input';
 import {useDispatch} from 'react-redux'
-import {signUp} from '../../actions/auth'
+import {signUp,signIn} from '../../actions/auth'
 import {useHistory} from 'react-router-dom'
 // import Icon from './icon'
 const Auth = () => {
@@ -20,8 +20,9 @@ const handleSubmit=(e)=>{e.preventDefault();
     if(isSignUp){
         dispatch(signUp(formData,history));       
     }
-    if(!isSignUp){}
-    
+    if(!isSignUp){
+        dispatch(signIn(formData,history));
+    }   
 }
 const handleChange=({target:{name,value}})=>{setFormData({...formData,[name]:value})}
 const switchMode=()=>{setIsSignUp((prevState)=>!prevState)}
